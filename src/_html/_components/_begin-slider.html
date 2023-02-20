@@ -1,0 +1,33 @@
+<div class="hollidays__sliderbox bg-white">
+  <div class="container">
+    <h2 class="hollidays__sliderbox-title">
+      Зачем мне нужно ехать на <span class="text-gray">Большие Каникулы</span>?
+    </h2>
+  </div>
+  
+  
+  
+  <section class="container horizontal">
+    <div class="pin-wrap">
+      <div class="animation-wrap to-right">        
+        {% for item in [1,2,3,4] %}       
+        <div class="item obs-item">
+          <div class="item__card">
+            <header class="animation-wrap__header">
+              <div class="animation-wrap__video">
+                <video class="obs-video video-fit" muted="false" loop>
+                  <source src="/assets/img/top.mp4" type="video/mp4">
+                </video>
+              </div>
+            </header>
+            <h3>Нетворкин</h3>
+            <p>Крутые знакомства и новые друзья. Обмен опытом, истории из жизни и бизнеса. И, конечно, душевные посиделки у костра
+              под
+              гитару, яхта, картинг, ночные покатушки на самокатах, бары и дискотеки</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section> 
+</div>

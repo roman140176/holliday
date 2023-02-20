@@ -1,0 +1,39 @@
+{% set menu = [
+  {name:'Что это?',href:'#wts'},
+  {name:'Отзывы',href:'#reviews'},
+  {name:'Программа',href:'#mp'},
+  {name:'Вопросы',href:'#faq'},
+  {name:'Фото и видео',href:'#media'},
+  {name:'Стоимость',href:'#price'}
+  ] %}
+
+<header class="hollidays__header">
+  <div class="hollidays__top container d-flex">
+    <a href="/" class="hollidays__name white">
+      большие
+      <br>каникулы
+    </a>
+    <div class="hollidays__menubox">
+      <ul class="hollidays__menu d-flex">
+        {% for item in menu %}
+        <li class="hollidays__menu-item">
+          <a href="{{item.href}}" class="hollidays__menu-link js-ancor {% if item.href==='#wts' %}active{% endif %}">{{item.name}}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="hollidays__social d-grid">
+      {% for link in links %}
+      
+        <a href="#" class="hollidays__social-link">
+          <img src="/assets/img/icons/{{link.name}}.svg" alt="">
+        </a>
+      
+      {% endfor %}
+    </div>
+    <div class="hollidays__toggler">
+      <span></span>
+    </div>
+  </div>
+</header>
+{% include "./_mobile-menu.html" %}

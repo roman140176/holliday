@@ -1,0 +1,97 @@
+<div class="programm js-section" id="mp">
+  <div class="container">
+    <h2 class="programm__title">
+      Программа
+      каникул
+    </h2>
+
+  </div>
+  
+<div id="app" class="container">   
+  
+  <div class="map__wrapp relative">
+    <div class="map__list swiper">      
+      <div class="swiper-wrapper">
+        <div class="map__listItems swiper-slide" v-for="magazine in magazines">
+          <span class="map__listItems-span" v-bind:rel="magazine.id" v-on:click="showCollection" ref="listItem">{% raw %}{{magazine.name}}{% endraw %}</span>        
+        </div>
+
+      </div>
+    </div>
+    <div class="map__text-content map__text-top">
+      <p v-for="t in textTop" class="text-gray d-flex">
+        <i>
+          <img src="/assets/img/mark-list.svg" alt="">
+        </i>
+        <span>
+          {% raw %}{{t.name}}{% endraw %}
+        </span>
+      </p>
+    </div>
+    <div class="myMap" id="map"></div>
+    <div class="map__text-bottom d-flex relative">
+      <div class="map__text-left">
+        <h3>Места отдыха и экскурсий могут меняться в&nbsp;зависимости от погоды, также мы можем успеть посетить:</h3>
+        <div class="map__text-content">
+          <p v-for="tb in textBottom" class="text-gray d-flex">
+            <i>
+              <img src="/assets/img/mark-list.svg" alt="">
+            </i>
+            <span>
+              {% raw %}{{tb.name}}{% endraw %}
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="map__images absolute">
+        <div class="map__image absolute">
+         
+          <picture>
+            <source srcset="/assets/img/pl.webp" type="image/webp">
+            <img src="/assets/img/pl.jpg" alt="Горы" class="main_image">
+          </picture>
+         
+        </div>
+        <div class="map__image absolute">
+          
+            <picture>
+              <source srcset="/assets/img/pl.webp" type="image/webp">
+              <img src="/assets/img/pl.jpg" alt="Горы" class="main_image">
+            </picture>
+          
+        </div>
+       </div>
+      
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+  let groups;
+  const fetchGroups = async () => {
+    const res = await fetch('/map/map.json')    
+    return await res.json()
+  } 
+    
+
+    fetchGroups().then(data=>{      
+      groups = data
+    }).then(()=>{
+      getScript('/vue/vue.js')
+    }).then(()=>{
+      getScript('/vue/map.js')
+    })
+
+    
+
+    function getScript(url, as = false) {
+      var js_script = document.createElement('script');
+      js_script.type = "text/javascript";
+      js_script.src = url;
+      js_script.async = as;
+      document.getElementsByTagName('head')[0].appendChild(js_script);
+    }
+
+    
+</script>

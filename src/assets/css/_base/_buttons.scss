@@ -1,0 +1,108 @@
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &-link {
+      @include btn-link();
+    }
+  span{
+    pointer-events: none;
+    transition: transform .1s;
+  }
+  &:hover{
+    span {
+        animation: bounce 1s ease;
+      }
+  }
+  &.unhover{
+    span{
+      animation: bounce_out 1s ease;
+    }
+  }
+  &-green{
+    @include btn();
+    
+    &:hover,&:focus{
+      background: linear-gradient(261.7deg, #2B29B5 2.28%, rgba(0, 240, 255, 0) 100%), #CF3F96;
+      &::before{
+        background: linear-gradient(261.7deg, #2B29B5 2.28%, rgba(0, 240, 255, 0) 100%), #CF3F96;
+        filter: blur(50px);        
+      }
+      
+    }
+
+    @media (max-width:1680px) {
+      width: 265rem;      
+    }
+    @media (max-width:1100px){
+      width: 343rem;
+    }
+  }
+  &-fixed{
+    position: fixed;
+    top: 864rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    &.scrolled{
+      top: unset;
+      bottom: 78rem;
+      @media (max-width:1100px) {
+          bottom: 40rem;
+        }
+    }
+    @media (max-width:1680px){
+      top: 648rem;
+    }
+  }
+}
+
+
+@keyframes bounce {
+  0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+  
+    40% {
+      transform: translateY(-30px);
+    }
+  
+    60% {
+      transform: translateY(-15px);
+    }
+}
+
+@keyframes bounce_out {
+  0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+  
+    40% {
+      transform: translateY(-30px);
+    }
+  
+    60% {
+      transform: translateY(-15px);
+    }
+}
+@keyframes bounce_menu {
+ 0%{
+  transform: translateY(-30px);
+ }
+ 50%{
+  transform: translateY(30px);
+ }
+ 100%{
+  transform: translateY(0);
+ }
+}
+
+
