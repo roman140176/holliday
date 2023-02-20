@@ -50,7 +50,7 @@
                         iconLayout: 'default#image',
                         iconImageSize: [40, 40],
                         iconImageOffset: [-20, -40],
-                        iconImageHref: '/assets/img/mark.svg'
+                        iconImageHref: 'https://roman140176.github.io/holliday/assets/img/mark.svg'
                     });
 
                     /* Расставляем на карту объекты*/
