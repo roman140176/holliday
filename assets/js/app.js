@@ -12447,7 +12447,11 @@ var options = {
 var callback = function callback(entries, observer) {
   entries.forEach(function (entry) {
     if (entry.isIntersecting) {
+      entry.target.getElementsByTagName('source')[0].src = entry.target.dataset.src;
+      entry.target.load();
+      entry.target.removeAttribute('poster');
       entry.target.play();
+      console.dir(entry.target.getElementsByTagName('source')[0].src);
     } else {
       entry.target.pause();
     }
